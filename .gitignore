@@ -18,8 +18,6 @@ ENV/
 # Environment variables (SECRETS!)
 .env
 
-# ChromaDB (too large for GitHub)
-CHROMA_DIR/
 
 # IDE
 .vscode/
