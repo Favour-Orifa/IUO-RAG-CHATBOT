@@ -1,4 +1,4 @@
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 PROMPT = PromptTemplate(
     template = """You are an expert assistant for igbenidion university okada(IUO).

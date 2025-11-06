@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from langchain.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationalRetrievalChain
+from langchain_core.chat_history import BaseChatMessageHistory
+from langchain_classic.memory import ConversationBufferMemory
+from langchain_classic.chains import ConversationalRetrievalChain
 from prompt import PROMPT
 from dotenv import load_dotenv
 

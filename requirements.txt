@@ -1,9 +1,13 @@
 fastapi
 langchain
+langchain-core
 langchain-openai
+langchain-community
+langchain-huggingface
+pypdf
+chroma
+python-dotenv
+chromadb
 pydantic    
 uvicorn
-langchain-huggingface
 sentence-transformers
-langchain-community
-chromadb
