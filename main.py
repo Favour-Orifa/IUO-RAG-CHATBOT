@@ -30,7 +30,7 @@ def create_rag_chain():
     
 
     retriever = GLOBAL_VECTORE_STORE.as_retriever(search_type="similarity", 
-                                                  search_kwavrgs= {"k":3})
+                                                  search_kwargs= {"k":3})
     
     chain = ConversationalRetrievalChain.from_llm(llm = GLOBAL_LLM,
                                                   retriever = retriever,
@@ -47,6 +47,7 @@ def get_or_create_session(session_id: str):
     if not session_id in sessions:
         print(f'creating new session {session_id}')
         sessions[session_id] = create_rag_chain()
+    return sessions[session_id]    
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -80,6 +81,7 @@ async def lifespan(app: FastAPI):
         GLOBAL_VECTORE_STORE = Chroma(
             persist_directory =  str(chroma_db_path),
             embedding_function= embedding,
+            collection_name= "iuo_prospectus_collection"
         )
 
         doc_count = GLOBAL_VECTORE_STORE._collection.count()
